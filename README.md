@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/jdaviderb/ditto-circle.svg?token=5Xuc9Z8XseBGrimismLy&branch=master)](https://travis-ci.com/jdaviderb/ditto-circle)
 ### Using Circle
 if you want to use Circle for JSON Serialization, you have to add this package in your project
 
