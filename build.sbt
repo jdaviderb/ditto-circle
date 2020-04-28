@@ -2,7 +2,7 @@
 githubOwner := "jdaviderb"
 githubRepository := "ditto-circle"
 name := "ditto-circle"
-
+organization := "jdaviderb"
 version := "0.5"
 externalResolvers += "DittoSerializer" at "https://maven.pkg.github.com/jdaviderb/ditto-serializer"
 
