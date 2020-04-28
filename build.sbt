@@ -1,10 +1,16 @@
-val circeVersion = "0.12.3"
 
-name := "ditto_circle"
+githubOwner := "jdaviderb"
+githubRepository := "ditto-circle"
+name := "ditto-circle"
 
 version := "0.5"
 externalResolvers += "DittoSerializer" at "https://maven.pkg.github.com/jdaviderb/ditto-serializer"
 
+publishMavenStyle := true
+coverageEnabled := true
+coverageHighlighting := true
+
+val circeVersion = "0.12.3"
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
