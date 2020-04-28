@@ -6,6 +6,14 @@ import org.scalatest._
 import io.circe.parser._
 import org.jdaviderb.dittoSerializer.types.{DittoList, DittoSerializer}
 
+case class User(firstName: String, lastName: String)
+
+class UserSerializer(val user: User) extends Serializer {
+  attribute("name") { user.firstName }
+  attribute("last_name") { user.lastName }
+  attribute("full_name") { s"${user.firstName} ${user.lastName}" }
+}
+
 class TestChildSerializer extends Serializer {
   attribute[String]("string") { "string" }
   attribute[Int]("int") { 2147483647 }
@@ -39,8 +47,7 @@ class TestSerializer extends Serializer {
   attribute("ditoseriliazer") { new TestChildSerializer().asInstanceOf[DittoSerializer] }
 }
 
-
-class EncodeTest extends FunSpec {
+class EncoderTest extends FunSpec {
   describe("#from") {
     it("encodes a DittoSerializer to JSON") {
       val jsonExpected: String = """
@@ -102,14 +109,6 @@ class EncodeTest extends FunSpec {
         }
       ]
     """
-
-    case class User(firstName: String, lastName: String)
-
-    class UserSerializer(val user: User) extends Serializer {
-      attribute("name") { user.firstName }
-      attribute("last_name") { user.lastName }
-      attribute("full_name") { s"${user.firstName} ${user.lastName}" }
-    }
 
     // JSON Serialization
     val jorge = User("Jorge", "Hernandez")

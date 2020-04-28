@@ -7,8 +7,6 @@ version := "0.5"
 externalResolvers += "DittoSerializer" at "https://maven.pkg.github.com/jdaviderb/ditto-serializer"
 
 publishMavenStyle := true
-coverageEnabled := true
-coverageHighlighting := true
 
 val circeVersion = "0.12.3"
 libraryDependencies ++= Seq(
